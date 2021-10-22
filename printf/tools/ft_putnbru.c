@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putstr.c                                        :+:    :+:            */
+/*   ft_putnbru.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: gpirro <gpirro@student.codam.nl>             +#+                     */
+/*   By: gianlucapirro <gianlucapirro@student.42      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/07/16 11:28:18 by gpirro        #+#    #+#                 */
-/*   Updated: 2021/07/16 11:36:57 by gpirro        ########   odam.nl         */
+/*   Created: 2021/07/20 09:46:03 by gpirro        #+#    #+#                 */
+/*   Updated: 2021/10/22 12:22:58 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "../includes/ft_printf.h"
 
-void	ft_putstr(char *str)
+int	ft_putnbru(int nb, int i)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	if (nb >= 10)
 	{
-		write(1, &str[i], 1);
-		i++;
+		i = ft_putnbr(nb / 10, i + 1);
+		ft_putnbr(nb % 10, 0);
+		return (i);
 	}
+	else
+		ft_putchar(nb + '0');
+		return (i);
 }
