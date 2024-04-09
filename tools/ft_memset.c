@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlowcase.c                                    :+:    :+:            */
+/*   ft_memset.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: gpirro <gpirro@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/07/13 19:50:30 by gpirro        #+#    #+#                 */
-/*   Updated: 2021/10/22 11:31:05 by gpirro        ########   odam.nl         */
+/*   Created: 2021/10/06 11:06:17 by gpirro        #+#    #+#                 */
+/*   Updated: 2021/10/28 11:30:42 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strlowcase(char *str)
+#include "../includes/ft_printf.h"
+
+char	*ft_memset(void *string, int character, int len)
 {
-	int	i;
+	int		i;
+	char	*return_val;
 
 	i = 0;
-	while (str[i] != '\0')
+	return_val = (char *)string;
+	while (i < len)
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-		{
-			str[i] = str[i] + 32;
-		}
+		return_val[i] = character;
 		i++;
 	}
-	return (str);
+	return (return_val);
 }

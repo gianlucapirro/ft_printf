@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putstr.c                                        :+:    :+:            */
+/*   ft_strlowcase.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: gpirro <gpirro@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/07/16 11:28:18 by gpirro        #+#    #+#                 */
-/*   Updated: 2021/10/22 11:55:30 by gpirro        ########   odam.nl         */
+/*   Created: 2021/07/13 19:50:30 by gpirro        #+#    #+#                 */
+/*   Updated: 2021/10/28 11:38:46 by gpirro        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
-
-int	ft_putstr(char *str, int should_i_free)
+char	*strlowcase(char *str)
 {
 	int	i;
 
 	i = 0;
 	if (str == 0)
-		return (write(1, "(null)", 6));
-	while (str[i])
+		return (0);
+	while (str[i] != '\0')
 	{
-		write(1, &str[i], 1);
+		if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] = str[i] + 32;
+		}
 		i++;
 	}
-	if (should_i_free)
-		free(str);
-	return (i);
+	return (str);
 }
